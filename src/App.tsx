@@ -1,8 +1,17 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useGetItemsQuery } from './redux';
+
 
 function App() {
+
+  const {data: items, isLoading} = useGetItemsQuery(2)
+
+    if(isLoading) return <h1>Loading...</h1>
+
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -18,6 +27,16 @@ function App() {
         >
           Learn React
         </a>
+
+      <ul>
+        {items && items.map(({title}, i) =>(
+          <li key={i}>{title}</li>
+        ))}
+      </ul>
+       
+  
+      
+       
       </header>
     </div>
   );
