@@ -28,6 +28,8 @@ function App() {
           Learn React
         </a>
 
+        <p>Hello world</p>
+
       <ul>
         {items && items.map(({title}, i) =>(
           <li key={i}>{title}</li>
